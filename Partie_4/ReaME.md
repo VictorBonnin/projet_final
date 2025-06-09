@@ -57,3 +57,47 @@ Après transformation et nettoyage, les données sont injectées dans **PostgreS
 
 ## 4. Passage au traitement des données en deep_learning.
 --> fichier deep_learning_prediction.ipynb
+
+## 5. Résumé de notre analyse Deep-Learning :
+
+- Notre démarche de Deep Learning se structure autour des étapes suivantes, en lien avec les attendus du TP :
+
+#### 1. Choix et préparation du jeu de données
+
+- Nous avons choisi d’utiliser un dataset différent de ceux vus en cours, en privilégiant une tâche de régression sur des données réelles (valeurs foncières).
+- **Analyse exploratoire :** Extraction, nettoyage (gestion des valeurs manquantes, filtrage des aberrations, corrections de types), transformation (feature engineering, normalisation).
+- **Augmentation des données :** Non réalisée car sur des données tabulaires issues de transactions immobilières, ce qui ne se prête pas à l’augmentation classique : la justification est apportée dans le notebook.
+
+#### 2. Visualisation des données
+
+- Représentations graphiques (histogrammes, boxplots, scatter plots) pour analyser la distribution des variables et la relation avec la cible.
+- Ce travail nous permet d’orienter les choix de modélisation et nos futures analyses.
+
+#### 3. Modélisation et Transfert Learning
+
+- **Plusieurs modèles sont comparés** :
+  1. **Modèle MLP** : Un réseau de neurones dense (Multi-Layer Perceptron) construit sur-mesure avec Tensorflow/Keras, servant de modèle “maison” de référence.
+  2. **Modèle TabNet** : Un modèle de deep learning pour données tabulaires, utilisé ici via PyTorch, bénéficiant du transfert learning pour la régression.
+  3. **Modèles classiques** : Différents modèles d'ensemble reconnus pour leur efficacité sur données tabulaires : Random Forest, XGBoost, Gradient Boosting, etc.
+
+- Pour chaque modèle :  
+  - Description de l’architecture et des paramètres principaux  
+  - Justification du choix  
+  - Explication de la méthode d’entraînement (incluant le transfert learning pour TabNet)  
+  - Évaluation comparative sur les mêmes jeux de données
+
+#### 4. Comparaison des performances
+
+- Les résultats des modèles sont comparés via des métriques adaptées à la régression (RMSE, MAE, R²).
+- Le modèle affichant les meilleures performances est retenu pour la phase applicative.
+
+## 6. Application Streamlit
+
+- Une application Streamlit a été développée afin de :
+  - Visualiser dynamiquement le dataset.
+  - Proposer des prédictions interactives via le ou les modèles entraînés.
+  - Offrir une interface claire pour tester le pipeline de bout en bout.
+
+- L'application est disponible grâce à un code permettant de faire tourner l'application. Le code va se servir des données de prédictions sur 2025, dont le CSV est créé à la toute fin du fichier ipynb. Pour éviter d'avoir à executer tout le fichier, nous l'avons déposé dans un format CSV.
+
+- Pour lancer l'application Streamlit, il suffit d'aller dans un terminal, dans le dossier "Partie_4" et de lancer la commande suivante : "streamlit run app.py"
