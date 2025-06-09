@@ -1,0 +1,38 @@
+============================================================
+Rapport généré le 2025-05-14 20:27:29
+
+ Exemple de données chargées depuis les fichiers Parquet :
+
++--------------------------+-----------+-----------------------+-------------------+---------------------+---------------+-------------------------+-------------------+----------+---------------+
+|_id                       |code_postal|commune                |date_mutation      |fichier_source       |nature_mutation|nombre_pieces_principales|surface_reelle_bati|type_local|valeur_fonciere|
++--------------------------+-----------+-----------------------+-------------------+---------------------+---------------+-------------------------+-------------------+----------+---------------+
+|{6824aae4a73a040bc122d248}|1370       |VAL-REVERMONT          |2020-01-07 00:00:00|ValeursFoncieres-2020|Vente          |0                        |0.0                |          |123.0          |
+|{6824aae4a73a040bc122d251}|1000       |SAINT-DENIS-LES-BOURG  |2020-01-03 00:00:00|ValeursFoncieres-2020|Vente          |7                        |201.0              |Maison    |350750.0       |
+|{6824aae4a73a040bc122d253}|1000       |SAINT-DENIS-LES-BOURG  |2020-01-03 00:00:00|ValeursFoncieres-2020|Vente          |7                        |201.0              |Maison    |350750.0       |
+|{6824aae4a73a040bc122d273}|1190       |CHAVANNES-SUR-REYSSOUZE|2020-01-15 00:00:00|ValeursFoncieres-2020|Vente          |0                        |0.0                |          |6500.0         |
+|{6824aae4a73a040bc122d27b}|1340       |MALAFRETAZ             |2020-01-08 00:00:00|ValeursFoncieres-2020|Vente          |0                        |0.0                |Dépendance|150000.0       |
+|{6824aae4a73a040bc122d280}|1270       |VILLEMOTIER            |2020-01-14 00:00:00|ValeursFoncieres-2020|Vente          |4                        |61.0               |Maison    |57000.0        |
+|{6824aae4a73a040bc122d283}|1160       |PONT-D AIN             |2020-01-13 00:00:00|ValeursFoncieres-2020|Vente          |4                        |107.0              |Maison    |185000.0       |
+|{6824aae4a73a040bc122d289}|1000       |BOURG-EN-BRESSE        |2020-01-10 00:00:00|ValeursFoncieres-2020|Vente          |0                        |0.0                |Dépendance|150000.0       |
+|{6824aae4a73a040bc122d290}|1290       |CORMORANCHE-SUR-SAONE  |2020-01-07 00:00:00|ValeursFoncieres-2020|Vente          |0                        |0.0                |          |55000.0        |
+|{6824aae4a73a040bc122d299}|1370       |SAINT-ETIENNE-DU-BOIS  |2020-01-15 00:00:00|ValeursFoncieres-2020|Vente          |5                        |101.0              |Maison    |224000.0       |
++--------------------------+-----------+-----------------------+-------------------+---------------------+---------------+-------------------------+-------------------+----------+---------------+
+only showing top 10 rows
+
+
+Statistiques sur les données :
+- Nombre total de documents : 20000
+- Nombre de communes différentes : 1925
+- Moyenne de la valeur foncière : 546329.34 €
+
+ Top 5 des communes avec le plus de ventes :
++--------------+-----+
+|commune       |count|
++--------------+-----+
+|NICE          |1799 |
+|CANNES        |597  |
+|ANTIBES       |574  |
+|CAGNES SUR MER|293  |
+|GRASSE        |289  |
++--------------+-----+
+

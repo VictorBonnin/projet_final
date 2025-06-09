@@ -1,0 +1,19 @@
+✅ Fin de traitement du fichier : ValeursFoncieres-2020.txt
+🧮 Total lignes envoyées : 3522416
+
+✅ Fin de traitement du fichier : ValeursFoncieres-2021.txt
+🧮 Total lignes envoyées : 4673720
+
+✅ Fin de traitement du fichier : ValeursFoncieres-2022.txt
+🧮 Total lignes envoyées : 4671911
+
+✅ Fin de traitement du fichier : ValeursFoncieres-2023.txt
+🧮 Total lignes envoyées : 3806978
+
+✅ Fin de traitement du fichier : ValeursFoncieres-2024.txt
+🧮 Total lignes envoyées : 3458643
+
+-----------------
+3522416 + 4673720 + 4671911 + 3806978 + 3458643 = 
+
+🧮 20 133 668 lignes

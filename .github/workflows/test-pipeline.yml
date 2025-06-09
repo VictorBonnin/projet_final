@@ -1,0 +1,30 @@
+name: CI - Tests pipeline PySpark
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test-pipeline:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Cloner le dépôt
+      uses: actions/checkout@v3
+
+    - name: Configurer Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Installer les dépendances
+      run: |
+        pip install --upgrade pip
+        pip install -r Partie_1/requirements.txt
+        pip install pytest findspark
+
+    - name: Lancer les tests PySpark
+      run: |
+        pytest Partie_1/tests/

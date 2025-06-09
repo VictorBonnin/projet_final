@@ -1,0 +1,46 @@
+FROM bitnami/spark:latest
+
+ENV HOME=/tmp
+RUN mkdir -p $HOME
+
+USER root
+
+RUN echo "sparkuser:x:1001:1001:spark user:/home/sparkuser:/bin/bash" >> /etc/passwd && \
+    mkdir -p /home/sparkuser && chown 1001:1001 /home/sparkuser
+
+# Installation de curl ET git pour pouvoir cloner depuis GitHub
+RUN apt-get update && apt-get install -y curl git && apt-get clean
+
+ENV SPARK_JARS_DIR=/opt/bitnami/spark/jars
+
+RUN echo "spark.jars.ivy=/tmp/ivy2" >> /opt/bitnami/spark/conf/spark-defaults.conf
+
+# MongoDB JARs pour Spark
+RUN curl -L -o ${SPARK_JARS_DIR}/mongo-spark-connector_2.12-3.0.1.jar https://repo1.maven.org/maven2/org/mongodb/spark/mongo-spark-connector_2.12/3.0.1/mongo-spark-connector_2.12-3.0.1.jar && \
+    curl -L -o ${SPARK_JARS_DIR}/mongodb-driver-core-4.3.4.jar https://repo1.maven.org/maven2/org/mongodb/mongodb-driver-core/4.3.4/mongodb-driver-core-4.3.4.jar && \
+    curl -L -o ${SPARK_JARS_DIR}/bson-4.3.4.jar https://repo1.maven.org/maven2/org/mongodb/bson/4.3.4/bson-4.3.4.jar && \
+    curl -L -o ${SPARK_JARS_DIR}/mongodb-driver-sync-4.3.4.jar https://repo1.maven.org/maven2/org/mongodb/mongodb-driver-sync/4.3.4/mongodb-driver-sync-4.3.4.jar
+
+# Kafka pour Spark
+RUN curl -L -o ${SPARK_JARS_DIR}/spark-sql-kafka-0-10_2.12-3.0.1.jar https://repo1.maven.org/maven2/org/apache/spark/spark-sql-kafka-0-10_2.12/3.0.1/spark-sql-kafka-0-10_2.12-3.0.1.jar && \
+    curl -L -o ${SPARK_JARS_DIR}/kafka-clients-2.4.1.jar https://repo1.maven.org/maven2/org/apache/kafka/kafka-clients/2.4.1/kafka-clients-2.4.1.jar && \
+    curl -L -o ${SPARK_JARS_DIR}/spark-token-provider-kafka-0-10_2.12-3.0.1.jar https://repo1.maven.org/maven2/org/apache/spark/spark-token-provider-kafka-0-10_2.12/3.0.1/spark-token-provider-kafka-0-10_2.12-3.0.1.jar && \
+    curl -L -o ${SPARK_JARS_DIR}/commons-pool2-2.11.1.jar https://repo1.maven.org/maven2/org/apache/commons/commons-pool2/2.11.1/commons-pool2-2.11.1.jar
+
+# Ajout du driver PostgreSQL pour Spark
+RUN curl -L -o ${SPARK_JARS_DIR}/postgresql-42.2.27.jar https://jdbc.postgresql.org/download/postgresql-42.2.27.jar
+
+WORKDIR /app
+COPY . /app
+
+# Nettoyage et installation des libs nécessaires
+RUN rm -rf /opt/bitnami/python/lib/python3.12/site-packages/kafka* && \
+    pip install --upgrade pip && \
+    pip install --no-cache-dir six==1.16.0 && \
+    pip install --no-cache-dir git+https://github.com/dpkp/kafka-python.git && \
+    pip install --no-cache-dir py4j
+
+COPY requirements.txt /app/requirements.txt
+RUN pip install --upgrade pip && pip install --no-cache-dir -r /app/requirements.txt
+
+USER 1001

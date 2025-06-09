@@ -1,0 +1,28 @@
+Identifiant de document|Reference document|1 Articles CGI|2 Articles CGI|3 Articles CGI|4 Articles CGI|5 Articles CGI|No disposition|Date mutation|Nature mutation|Valeur fonciere|No voie|B/T/Q|Type de voie|Code voie|Voie|Code postal|Commune|Code departement|Code commune|Prefixe de section|Section|No plan|No Volume|1er lot|Surface Carrez du 1er lot|2eme lot|Surface Carrez du 2eme lot|3eme lot|Surface Carrez du 3eme lot|4eme lot|Surface Carrez du 4eme lot|5eme lot|Surface Carrez du 5eme lot|Nombre de lots|Code type local|Type local|Identifiant local|Surface reelle bati|Nombre pieces principales|Nature culture|Nature culture speciale|Surface terrain
+|||||||000001|07/01/2020|Vente|8000,00||||B063|FORTUNAT|1250|CEYZERIAT|01|72||AK|216||||||||||||0||||||T||1061
+|||||||000001|02/01/2020|Vente|2175,00||||B124|TERRES DES CINQ SAULES|1290|LAIZ|01|203||B|4||||||||||||0||||||BT||85
+|||||||000001|02/01/2020|Vente|2175,00||||B006|BOIS DU CHAMP RION|1290|LAIZ|01|203||B|173||||||||||||0||||||T||1115
+|||||||000001|02/01/2020|Vente|2175,00||||B025|EN COROBERT|1290|LAIZ|01|203||B|477||||||||||||0||||||T||1940
+|||||||000001|02/01/2020|Vente|2175,00||||B124|TERRES DES CINQ SAULES|1290|LAIZ|01|203||C|68||||||||||||0||||||T||1148
+|||||||000001|02/01/2020|Vente|2175,00||||B124|TERRES DES CINQ SAULES|1290|LAIZ|01|203||C|69||||||||||||0||||||T||2960
+|||||||000001|07/01/2020|Vente|75000,00|||RUE|0064|DE LA CHARTREUSE|1960|PERONNAS|01|289||AI|210||||||||||||0||||||AB||610
+|||||||000001|07/01/2020|Vente|123,00||||B041|CHAMP PORTIER|1370|VAL-REVERMONT|01|426||ZN|197||||||||||||0||||||S||55
+|||||||000001|07/01/2020|Vente|123,00||||B041|CHAMP PORTIER|1370|VAL-REVERMONT|01|426||ZN|201||||||||||||0||||||S||68
+|||||||000001|09/01/2020|Vente|72000,00||||B034|CHAMPEL|1270|COLIGNY|01|108||AC|15||||||||||||0||||||J||328
+|||||||000001|09/01/2020|Vente|72000,00||||B034|CHAMPEL|1270|COLIGNY|01|108||AC|261||||||||||||0||||||P||1207
+|||||||000001|09/01/2020|Vente|72000,00|5367|||B107|LORETTE|1270|COLIGNY|01|108||AH|48||||||||||||0|1|Maison||35|2|S||381
+|||||||000001|10/01/2020|Vente|64000,00|||RUE|0064|DE LA CHARTREUSE|1960|PERONNAS|01|289||AI|223||||||||||||0||||||AB||530
+|||||||000001|06/01/2020|Vente|180300,00|31||RUE|0970|COMTE DE LA TEYSSONNIERE|1000|BOURG-EN-BRESSE|01|53||AI|138||||||||||||0|1|Maison||75|4|S||525
+|||||||000001|06/01/2020|Vente|54800,00|6||AV|0770|DU CHAMP DE FOIRE|1000|BOURG-EN-BRESSE|01|53||BK|197||211|31,68|39||||||||2|2|Appartement||32|1|||
+|||||||000001|03/01/2020|Vente|350750,00|904||CHE|0149|DES GDES CADALLES|1000|SAINT-DENIS-LES-BOURG|01|344||AC|34||||||||||||0||||||S||19
+|||||||000001|03/01/2020|Vente|350750,00|904|B|CHE|0149|DES GDES CADALLES|1000|SAINT-DENIS-LES-BOURG|01|344||AC|39||||||||||||0|1|Maison||201|7|J||1267
+|||||||000001|03/01/2020|Vente|350750,00|904|B|CHE|0149|DES GDES CADALLES|1000|SAINT-DENIS-LES-BOURG|01|344||AC|39||||||||||||0|3|Dépendance||0|0|S||1497
+|||||||000001|03/01/2020|Vente|350750,00|904|B|CHE|0149|DES GDES CADALLES|1000|SAINT-DENIS-LES-BOURG|01|344||AC|39||||||||||||0|1|Maison||201|7|S||1497
+|||||||000001|03/01/2020|Vente|350750,00|904|B|CHE|0149|DES GDES CADALLES|1000|SAINT-DENIS-LES-BOURG|01|344||AC|39||||||||||||0|3|Dépendance||0|0|J||1267
+|||||||000001|03/01/2020|Vente|350750,00||||B003|LES CADALLES|1000|SAINT-DENIS-LES-BOURG|01|344||AC|180||||||||||||0||||||AB||91
+|||||||000001|10/01/2020|Vente|1,00||||B118|LES FOSSES|1440|VIRIAT|01|451||AT|164||||||||||||0||||||S||36
+|||||||000001|10/01/2020|Vente|53650,00|5104|||B049|COLIGNY LE BAS|1270|COLIGNY|01|108||AB|106||||||||||||0|2|Appartement||50|2|S||195
+|||||||000001|10/01/2020|Vente|53650,00|5104|||B049|COLIGNY LE BAS|1270|COLIGNY|01|108||AB|106||||||||||||0|2|Appartement||45|2|S||195
+|||||||000001|13/01/2020|Vente|97000,00|16||RUE|1770|DES GRAVES|1000|BOURG-EN-BRESSE|01|53||AZ|476||8|78,03|||||||||1|2|Appartement||92|3|||
+|||||||000001|09/01/2020|Vente|215000,00|2||IMP|0140|DU COLOMBIER|1250|TOSSIAT|01|422||D|1121||||||||||||0|1|Maison||93|4|S||790
+|||||||000001|09/01/2020|Vente|215000,00||||B044|AU COLOMBIER|1250|TOSSIAT|01|422||D|1167||||||||||||0||||||P||665

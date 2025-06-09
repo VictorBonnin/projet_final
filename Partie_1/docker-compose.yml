@@ -1,0 +1,135 @@
+version: "3.9"
+
+services:
+
+  spark:
+    build: .
+    environment:
+      - SPARK_MODE=master
+    ports:
+      - "8080:8080"
+    volumes:
+      - ../donnees_brutes:/app/donnees_brutes
+      - ../fichiers_tests:/app/fichiers_tests
+      - ../Partie_1:/app
+
+  spark-worker:
+    build: .
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark:7077
+    depends_on:
+      - spark
+    volumes:
+      - ../donnees_brutes:/app/donnees_brutes
+      - ../fichiers_tests:/app/fichiers_tests
+      - ../Partie_1:/app
+
+  mongodb:
+    image: mongo:latest
+    container_name: partie_1-mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  zookeeper:
+    image: bitnami/zookeeper:latest
+    container_name: zookeeper
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
+
+  kafka:
+    image: bitnami/kafka:2.8.1
+    container_name: partie_1-kafka-1
+    restart: always #vérifier si ça fonctionne avec ça
+    ports:
+      - "9092:9092"
+    environment:
+      - KAFKA_BROKER_ID=1
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+      - ALLOW_PLAINTEXT_LISTENER=yes
+      - KAFKA_LISTENERS=PLAINTEXT://:9092
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka:9092
+    depends_on:
+      - zookeeper
+
+  spark-runner:
+    build: .
+    container_name: spark-runner
+    depends_on:
+      - spark
+      - spark-worker
+      - mongodb
+      - kafka
+    environment:
+      - HOME=/tmp/ivy2      # Fix HOME vers un chemin valide
+      - JAVA_HOME=/opt/bitnami/java  # Ajout de JAVA_HOME (utile dans bitnami/spark)
+    volumes:
+      - ../donnees_brutes:/app/donnees_brutes
+      - ../fichiers_tests:/app/fichiers_tests
+      - ../Partie_1:/app
+      - ./logs:/app/logs
+      - ../Partie_1/Parquet:/app/Parquet
+      - ../Partie_1/Neo4j:/app/Neo4j
+    command: bash -c "mkdir -p /tmp/ivy2 && tail -f /dev/null"  # Crée le répertoire au lancement
+
+  streamlit:
+    build:
+      context: ../Partie_1_Streamlit_dashboard
+      dockerfile: Dockerfile
+    ports:
+      - "8501:8501"
+    depends_on:
+      - mongodb
+    volumes:
+      - ../Partie_1_Streamlit_dashboard:/app
+    command: streamlit run app.py --server.port 8501 --server.address 0.0.0.0
+
+  postgres:
+    image: postgres:14
+    container_name: projet_final_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: spark
+      POSTGRES_PASSWORD: spark123
+      POSTGRES_DB: projet_final
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
+
+  neo4j:
+    image: neo4j:5.18
+    container_name: projet_final_neo4j
+    ports:
+      - "7474:7474"  # Interface web
+      - "7687:7687"  # Bolt (connexion par script)
+    environment:
+      - NEO4J_AUTH=neo4j/spark123  # utilisateur : neo4j, mot de passe : spark123
+    volumes:
+      - neo4j_data:/data
+
+  api-postgre:
+    build:
+      context: ./api_postgre
+    container_name: api_postgre
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+    volumes:
+      - ./api_postgre:/app
+      - ./logs:/logs  # 👉 Ajout d’un dossier de logs partagé
+    restart: always
+    command: /bin/sh -c "uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload > /logs/logs_api.txt 2>&1"
+
+volumes:
+  mongo_data:
+  pgdata:
+  neo4j_data:

@@ -1,0 +1,55 @@
+Statistiques enregistrées dans Redis :
+- Total documents : 246
+- Moyenne valeur foncière : 176653.75
+- Top 5 communes :
+  - PLATEAU D'HAUTEVILLE (32)
+  - BOURG-EN-BRESSE (32)
+  - FOISSIAT (22)
+  - SAINT-DENIS-LES-BOURG (16)
+  - LAIZ (12)
+- Dernière mise à jour : 2025-05-04 17:41:46
+----------------------------------------
+Statistiques enregistrées dans Redis :
+- Total documents : 123
+- Moyenne valeur foncière : 176653.75
+- Top 5 communes :
+  - PLATEAU D'HAUTEVILLE (16)
+  - BOURG-EN-BRESSE (16)
+  - FOISSIAT (11)
+  - SAINT-DENIS-LES-BOURG (8)
+  - LAIZ (6)
+- Dernière mise à jour : 2025-05-05 13:53:19
+----------------------------------------
+Statistiques enregistrées dans Redis :
+- Total documents : 123
+- Moyenne valeur foncière : 176653.75
+- Top 5 communes :
+  - PLATEAU D'HAUTEVILLE (16)
+  - BOURG-EN-BRESSE (16)
+  - FOISSIAT (11)
+  - SAINT-DENIS-LES-BOURG (8)
+  - LAIZ (6)
+- Dernière mise à jour : 2025-05-05 21:45:41
+----------------------------------------
+Statistiques enregistrées dans Redis :
+- Total documents : 123
+- Moyenne valeur foncière : 176653.75
+- Top 5 communes :
+  - BOURG-EN-BRESSE (16)
+  - PLATEAU D'HAUTEVILLE (16)
+  - FOISSIAT (11)
+  - SAINT-DENIS-LES-BOURG (8)
+  - LAIZ (6)
+- Dernière mise à jour : 2025-05-13 11:36:58
+----------------------------------------
+Statistiques enregistrées dans Redis :
+- Total documents : 123
+- Moyenne valeur foncière : 176653.75
+- Top 5 communes :
+  - PLATEAU D'HAUTEVILLE (16)
+  - BOURG-EN-BRESSE (16)
+  - FOISSIAT (11)
+  - SAINT-DENIS-LES-BOURG (8)
+  - LAIZ (6)
+- Dernière mise à jour : 2025-05-14 11:29:19
+----------------------------------------
