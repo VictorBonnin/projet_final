@@ -2,27 +2,62 @@
 
 ## Structure du projet
 ```bash
-donnees_brutes/
-    ├── link_data.txt                   # Lien pour les données brutes à télécharger
-    └── fichiers_tests/
-        └── sample_data_2024.txt        # Fichier source (données)
+PROJET_FINAL/
+├── .github/                                # Config GitHub (CI/CD, workflows)
+├── Consignes/                              # Consignes de travail
+├── donnees_brutes/
+│   ├── link_data.txt                       # Lien de téléchargement des données
+│   └── fichiers_tests/
+│       └── sample_data_2024.txt            # Données brutes pour tests
+├── Partie_1/
+│   ├── API_Postgre/                        # API REST sécurisée (FastAPI + PostgreSQL)
+│   │   ├── app/
+│   │   │   ├── routes/                     # Fichiers de routage (endpoints REST)
+│   │   │   ├── auth.py                     # Authentification (JWT, hashing)
+│   │   │   ├── database.py                 # Connexion PostgreSQL
+│   │   │   ├── main.py                     # Point d’entrée FastAPI
+│   │   │   ├── models.py                   # Modèles SQLAlchemy
+│   │   │   ├── schemas.py                  # Schémas de validation (Pydantic)
+│   │   │   └── security.py                 # Sécurité et tokens JWT
+│   │   ├── .env                            # Variables d'environnement
+│   │   ├── Dockerfile                      # Image Docker pour l'API
+│   │   └── requirements.txt                # Dépendances Python API
+│   ├── logs/
+│   │   ├── log_pipeline_spark_stream.txt   # Logs du pipeline Spark Streaming
+│   │   ├── logs_api.txt                    # Logs d'activité API
+│   │   ├── statistiques_parquet.txt        # Statistiques d’exports Parquet
+│   │   └── statistiques_redis.txt          # Statistiques sur Redis
+│   ├── Neo4j/
+│   │   ├── neo4j_transactions.py           # Écriture dans Neo4j
+│   │   └── test_connection.py              # Test de connexion à Neo4j
+│   ├── Parquet/
+│   │   ├── output_parquet/                 # Exports complets
+│   │   ├── sample_output_parquet/          # Échantillons d’export
+│   │   ├── mongo_to_parquet.py             # Transformation Mongo → Parquet
+│   │   └── read_parquet.py                 # Lecture de fichiers Parquet
+│   ├── Silver_layer/
+│   │   ├── spark_postgres_reader.py        # Lecture des données PostgreSQL
+│   │   ├── spark_silver_writer.py          # Insertion Mongo → PostgreSQL
+│   │   ├── test_connexion.py               # Tests de connectivité PostgreSQL
+│   │   └── transformation_en_date.py       # Traitement des dates
+│   ├── tests/
+│   │   └── test_spark_pipeline.py          # Test global du pipeline Spark
+│   ├── docker-compose.yml                  # Orchestration Spark, Mongo, Kafka, etc.
+│   ├── dockerfile                          # Image Spark avec connecteurs Kafka/Mongo
+│   ├── producer.py                         # Producer Kafka : envoi des données
+│   ├── redis_example.py                    # Exemple de script Redis
+│   ├── requirements.txt                    # Dépendances Python du pipeline
+│   └── spark_stream_processor.py           # Traitement Spark Streaming → MongoDB
+├── Partie_1_Streamlit_dashboard/
+│   ├── app.py                              # Dashboard Streamlit (Bronze layer)
+│   ├── dockerfile                          # Image Docker pour Streamlit
+│   └── requirements.txt                    # Dépendances pour l’app web
 
-Partie_1/
-    ├── producer.py                     # Producer Kafka
-    ├── spark_stream_processor.py       # Traitement Spark Streaming vers MongoDB
-    ├── requirements.txt
-    ├── docker-compose.yml
-    ├── dockerfile                      # Image Spark (Kafka + Mongo connecteurs)
-    └── Silver_layer/  
-        ├── spark_postgres_reader.py    # Lecture des données Protgres
-        ├── spark_silver_writer.py      # Traitement des données de Mongo vers Postgres
-
-Partie_1_Streamlit_dashboard/
-    ├── app.py                          # Streamlit App (Dataviz bronze layer)
-    ├── dockerfile
-    └── requirements.txt
-
-reset_projet.sh
+├── reset_complet.sh                        # Réinitialisation complète du projet
+├── reset_sans_postgre.sh                   # Réinitialisation sans le volume PostgreSQL
+├── total_lignes.txt                        # Statistiques sur le volume total de lignes
+├── ReadME.md                               # Présentation du projet
+├── Soutenance.docx                         # Document de soutenance
 ```
 
 ## Nettoyage complet de l'environnement Docker
@@ -47,6 +82,13 @@ mongodb
 spark (master + worker)  
 spark-runner (conteneur pour exécuter les scripts Python)  
 streamlit (visualisation simple des données de Mongo)  
+
+Ajout du volume postgre si necessaire : 
+```bash
+docker run --rm -v partie_1_pgdata:/data -v "C:\Users\bonni\Documents\Ecole\Efrei\projet_final\backups:/backup" alpine tar -xzf /backup/partie_1_pgdata_backup.tar.gz -C /data
+
+docker run --rm -v partie_1_pgdata:/data alpine rm -f /data/postmaster.pid
+```
 
 ## Lancer les scripts de traitement
 1. Lancer le consumer Spark Streaming  

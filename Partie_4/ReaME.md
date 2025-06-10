@@ -55,6 +55,13 @@ Après transformation et nettoyage, les données sont injectées dans **PostgreS
 - Le projet démarera ainsi tranquillement. Ensuite, il faudra se rendre dans les volumes de docker, et supprimer le volume "partie_1_pgdata" pour le remplacer par celui qui est disponible en tarball à cette adresse : "https://www.transfernow.net/dl/20250608gjzZ8vYC".
 - Le fichier sera ensuite à insérer via docker en veillant bien à le renommer correctement.
 
+Nous pouvons donc modifier notre volume avec les commandes suivantes : 
+```bash
+docker run --rm -v partie_1_pgdata:/data -v "C:\Users\bonni\Documents\Ecole\Efrei\projet_final\backups:/backup" alpine tar -xzf /backup/partie_1_pgdata_backup.tar.gz -C /data
+
+docker run --rm -v partie_1_pgdata:/data alpine rm -f /data/postmaster.pid
+```
+
 ## 4. Passage au traitement des données en deep_learning.
 --> fichier deep_learning_prediction.ipynb
 

@@ -1,4 +1,5 @@
-#%pip install streamlit
+#!pip install streamlit
+#!pip install plotly
 
 import streamlit as st
 import pandas as pd
@@ -14,7 +15,7 @@ st.set_page_config(page_title="Prédictions immobilières 2025", layout="wide")
 # ------------------------
 st.title("📊 Prédiction de la valeur foncière en 2025")
 st.markdown("""
-Ce tableau de bord présente les **résultats de prédiction immobilière pour 2025** (par mois, département, etc.) à partir d’un modèle de machine learning Random Forest entraîné sur les données de 2020 à 2024.
+Ce tableau de bord présente les **résultats de prédiction immobilière pour 2025** (par mois, département, etc.) à partir d’un modèle de machine learning Random Forest entraîné sur les données de 2020 à 2024, issues de la tanche de prix de allant de 470 000 à 1.3M d'euros.
 
 **Démarche résumée :**
 - Préparation des données (feature engineering, nettoyage…)
