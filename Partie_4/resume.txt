@@ -1,0 +1,10 @@
+Bonjour Monsieur,
+
+Vous trouverez notre projet de deep_learning disponible dans le dossier 'Partie_4'. Vous pouvez consulter le ReadME dédié à ce projet dans ce même dossier pour mieux comprendre ce qu'il s'y passe.
+
+Au besoin, n'hésitez pas à me contacter.
+
+Bien cordialement,
+
+Victor BONNIN
+Joris CASADAVANT

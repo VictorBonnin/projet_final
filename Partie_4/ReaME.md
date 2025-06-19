@@ -107,4 +107,4 @@ docker run --rm -v partie_1_pgdata:/data alpine rm -f /data/postmaster.pid
 
 - L'application est disponible grâce à un code permettant de faire tourner l'application. Le code va se servir des données de prédictions sur 2025, dont le CSV est créé à la toute fin du fichier ipynb. Pour éviter d'avoir à executer tout le fichier, nous l'avons déposé dans un format CSV.
 
-- Pour lancer l'application Streamlit, il suffit d'aller dans un terminal, dans le dossier "Partie_4" et de lancer la commande suivante : "streamlit run app.py"
+- Pour lancer l'application Streamlit, il suffit d'aller dans un terminal, dans le dossier "Partie_4" et de lancer la commande suivante : "streamlit run app.py --server.port 8502"
